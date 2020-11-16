@@ -1,8 +1,23 @@
-# Write your code here
+import random
+WEAPONS = ('scissors', 'paper', 'rock')
+RULES = dict(scissorspaper='win',
+             scissorsrock='loose',
+             paperscissors='loose',
+             paperrock='win',
+             rockscissors='win',
+             rockpaper='loose',
+             scissorsscissors='draw',
+             paperpaper='draw',
+             rockrock='draw')
 player_turn = input()
-if player_turn == 'scissors':
-    print('Sorry, but the computer chose rock')
-elif player_turn == 'paper':
-    print('Sorry, but the computer chose scissors')
-elif player_turn == 'rock':
-    print('Sorry, but the computer chose paper')
+comp_turn = random.choice(WEAPONS)
+# print(comp_turn)
+# print(player_turn+comp_turn)
+result = RULES[player_turn+comp_turn]
+# print(result)
+if result == 'win':
+    print('Well done. The computer chose {} and failed'.format(comp_turn))
+elif result == 'loose':
+    print('Sorry, but the computer chose {}'.format(comp_turn))
+elif result == 'draw':
+    print('There is a draw ({})'.format(comp_turn))
